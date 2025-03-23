@@ -43,3 +43,26 @@ To set up the project, follow these steps:
    ```bash
    git clone https://github.com/your-username/ecommerce-text-classification.git
    cd ecommerce-text-classification
+
+import pandas as pd
+data = pd.read_csv("ecommerce_dataset.csv")
+
+from preprocessing import clean_text
+data['clean_description'] = data['Description'].apply(clean_text)
+
+from model import train_model
+model = train_model(data)
+
+
+Preprocessing
+The text data is preprocessed using the following steps:
+
+Lowercasing: Convert all text to lowercase.
+
+Removing Punctuation: Remove special characters and symbols.
+
+Tokenization: Split text into individual words.
+
+Stopword Removal: Remove common words like "and," "the," etc.
+
+Lemmatization: Reduce words to their base forms.
